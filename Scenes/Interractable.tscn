@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsc1u0uvlgkoh"]
+
+[ext_resource type="Script" path="res://Scenes/Interractable.gd" id="1_llf30"]
+[ext_resource type="Texture2D" uid="uid://b2h6sqvrglmkx" path="res://Assets/Sprites/Meat.png" id="1_x452k"]
+[ext_resource type="Shader" path="res://Assets/Shaders/outline.gdshader" id="2_35b47"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jpyja"]
+radius = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_naxq0"]
+shader = ExtResource("2_35b47")
+shader_parameter/active = true
+
+[node name="Interractable" type="Area2D"]
+script = ExtResource("1_llf30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jpyja")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_naxq0")
+texture = ExtResource("1_x452k")
