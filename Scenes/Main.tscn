@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnlbebacqaor3"]
+
+[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_o2l3d"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fdyrn"]
+size = Vector2(8, 8)
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("cursor")]
+script = ExtResource("1_o2l3d")
+cursor = NodePath("Cursor")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(130, 40)
+limit_left = 0
+limit_top = 0
+limit_right = 360
+limit_bottom = 108
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="Cursor" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_fdyrn")
