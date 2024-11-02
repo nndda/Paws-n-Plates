@@ -14,7 +14,21 @@ config/name="Paws in Plates"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=192
+window/size/viewport_height=108
+window/size/window_width_override=864
+window/size/window_height_override=486
+window/stretch/mode="viewport"
+
+[layer_names]
+
+2d_physics/layer_1="Interractable"
+2d_physics/layer_2="Kittens"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
