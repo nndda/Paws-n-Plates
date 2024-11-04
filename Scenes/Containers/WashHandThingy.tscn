@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckbdrkit4bq31"]
+
+[ext_resource type="PackedScene" uid="uid://de5rpb8ctl88f" path="res://Scenes/Container.tscn" id="1_iwopd"]
+[ext_resource type="Script" path="res://Scenes/Containers/WashHandThingy.gd" id="2_sdh23"]
+[ext_resource type="Texture2D" uid="uid://c2xjvl1g6h800" path="res://Assets/Sprites/WashingHandThingy.png" id="3_o0ek2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r8qw"]
+size = Vector2(16, 20)
+
+[node name="WashHandThingy" instance=ExtResource("1_iwopd")]
+collision_layer = 16
+collision_mask = 16
+container_name = 8
+
+[node name="Script" parent="." index="0"]
+script = ExtResource("2_sdh23")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_o0ek2")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_3r8qw")
+
+[connection signal="item_dropped" from="." to="Script" method="_on_item_dropped"]

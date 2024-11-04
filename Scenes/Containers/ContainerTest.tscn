@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://e2c5wffgis2a"]
+
+[ext_resource type="PackedScene" uid="uid://de5rpb8ctl88f" path="res://Scenes/Container.tscn" id="1_xen2a"]
+
+[node name="ContainerTest" instance=ExtResource("1_xen2a")]
+container_name = 1
+item_accept = Array[int]([1, 1, 1, 1])

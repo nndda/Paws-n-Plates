@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://v0h6o2pxudx3"]
+
+[ext_resource type="PackedScene" uid="uid://de5rpb8ctl88f" path="res://Scenes/Container.tscn" id="1_q5bhn"]
+[ext_resource type="Script" path="res://Scenes/Containers/BowlEgg.gd" id="2_68l8x"]
+[ext_resource type="Texture2D" uid="uid://bl2qoyi2v7bmt" path="res://Assets/Sprites/BowlEggEmpty.png" id="2_xxqf6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hyg6q"]
+
+[node name="BowlEgg" instance=ExtResource("1_q5bhn")]
+container_name = 5
+item_accept = Array[int]([8])
+
+[node name="Script" parent="." index="0"]
+script = ExtResource("2_68l8x")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_xxqf6")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_hyg6q")
+
+[connection signal="item_dropped" from="." to="Script" method="_on_item_dropped"]

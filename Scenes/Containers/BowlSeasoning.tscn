@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cih1ns6w5yjia"]
+
+[ext_resource type="PackedScene" uid="uid://de5rpb8ctl88f" path="res://Scenes/Container.tscn" id="1_c1ax6"]
+[ext_resource type="Texture2D" uid="uid://b4s2wcquphm8" path="res://Assets/Sprites/BowlSeasoningEmpty.png" id="2_gfara"]
+[ext_resource type="Script" path="res://Scenes/Containers/BowlSeasoning.gd" id="2_te07k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcr8r"]
+
+[node name="BowlSeasoning" instance=ExtResource("1_c1ax6")]
+container_name = 6
+
+[node name="Script" parent="." index="0"]
+script = ExtResource("2_te07k")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_gfara")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_lcr8r")
+
+[connection signal="item_dropped" from="." to="Script" method="_on_item_dropped"]

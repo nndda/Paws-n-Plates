@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://onfx0ifog0jj"]
+
+[ext_resource type="PackedScene" uid="uid://de5rpb8ctl88f" path="res://Scenes/Container.tscn" id="1_5fw1n"]
+[ext_resource type="Texture2D" uid="uid://cd3ohkqgfq7xf" path="res://Assets/Sprites/FryingPan.png" id="2_jcb67"]
+[ext_resource type="Script" path="res://Scenes/Containers/FryingPan.gd" id="2_rrdyl"]
+[ext_resource type="AudioStream" uid="uid://clpabi0xobqtd" path="res://Assets/Audio/CookDone.ogg" id="4_wiy6y"]
+[ext_resource type="AudioStream" uid="uid://cnls0ump8rvll" path="res://Assets/Audio/IsFrying.ogg" id="5_vp5cb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tpbok"]
+height = 32.0
+
+[node name="FryingPan" instance=ExtResource("1_5fw1n")]
+container_name = 9
+
+[node name="Script" parent="." index="0"]
+script = ExtResource("2_rrdyl")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_jcb67")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-14, -2)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_tpbok")
+
+[node name="RingDone" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("4_wiy6y")
+volume_db = -11.0
+
+[node name="IsFrying" type="AudioStreamPlayer2D" parent="." index="5"]
+position = Vector2(-14, -2)
+stream = ExtResource("5_vp5cb")
+
+[connection signal="item_dropped" from="." to="Script" method="_on_item_dropped"]

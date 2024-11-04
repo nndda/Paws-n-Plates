@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://0seqbpsjhtc4"]
+
+[ext_resource type="PackedScene" uid="uid://de5rpb8ctl88f" path="res://Scenes/Container.tscn" id="1_sgl2i"]
+[ext_resource type="Script" path="res://Scenes/Containers/CuttingBoard.gd" id="2_08gm7"]
+[ext_resource type="Texture2D" uid="uid://b2h6sqvrglmkx" path="res://Assets/Sprites/Meat.png" id="3_og0pq"]
+[ext_resource type="Texture2D" uid="uid://yuws7e2pkccm" path="res://Assets/Sprites/MeatChopped.png" id="4_atoef"]
+
+[node name="CuttingBoard" instance=ExtResource("1_sgl2i")]
+container_name = 2
+item_accept = Array[int]([3])
+
+[node name="Script" parent="." index="0"]
+script = ExtResource("2_08gm7")
+
+[node name="Meat" type="Sprite2D" parent="Sprite2D" index="0"]
+visible = false
+texture = ExtResource("3_og0pq")
+
+[node name="PLACEHOLDER0" type="Sprite2D" parent="Sprite2D" index="1"]
+position = Vector2(-12.5, 0)
+texture = ExtResource("4_atoef")
+
+[node name="PLACEHOLDER1" type="Sprite2D" parent="Sprite2D" index="2"]
+position = Vector2(-4.5, 0)
+texture = ExtResource("4_atoef")
+
+[node name="PLACEHOLDER2" type="Sprite2D" parent="Sprite2D" index="3"]
+position = Vector2(3.5, 0)
+texture = ExtResource("4_atoef")
+
+[node name="PLACEHOLDER3" type="Sprite2D" parent="Sprite2D" index="4"]
+position = Vector2(11.5, 0)
+texture = ExtResource("4_atoef")
+
+[connection signal="item_dropped" from="." to="Script" method="_on_item_dropped"]
