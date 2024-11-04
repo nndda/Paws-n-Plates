@@ -13,6 +13,9 @@ config_version=5
 config/name="Paws in Plates"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+[autoload]
+
+Global="*res://Scenes/Global.tscn"
 
 [display]
 
