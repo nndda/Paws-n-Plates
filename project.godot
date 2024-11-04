@@ -10,9 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Paws in Plates"
+config/name="Paws & Plates"
+run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+config/icon="res://icon.png"
+
 [autoload]
 
 Global="*res://Scenes/Global.tscn"
@@ -23,10 +27,15 @@ window/size/viewport_width=192
 window/size/viewport_height=108
 window/size/window_width_override=864
 window/size/window_height_override=486
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+
+[editor]
+
+naming/scene_name_casing=0
 
 [gui]
 
+fonts/dynamic_fonts/use_oversampling=false
 theme/custom_font="res://Assets/Fonts/monogram.ttf"
 theme/default_font_antialiasing=0
 
@@ -40,3 +49,4 @@ theme/default_font_antialiasing=0
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
