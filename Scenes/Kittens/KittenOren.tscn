@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://yhm8kaqrki8l"]
+
+[ext_resource type="PackedScene" uid="uid://d21totgiohura" path="res://Scenes/Kitten.tscn" id="1_lc6ni"]
+
+[node name="KittenOren" instance=ExtResource("1_lc6ni")]
+item_name = 15

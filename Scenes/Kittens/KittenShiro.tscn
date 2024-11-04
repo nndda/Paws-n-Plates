@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw35mja52soo5"]
+
+[ext_resource type="PackedScene" uid="uid://d21totgiohura" path="res://Scenes/Kitten.tscn" id="1_lkk6w"]
+[ext_resource type="Texture2D" uid="uid://cmhwercivmuai" path="res://Assets/Sprites/Cats/Shiro.png" id="2_y5v38"]
+
+[node name="KittenShiro" instance=ExtResource("1_lkk6w")]
+item_name = 17
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_y5v38")
