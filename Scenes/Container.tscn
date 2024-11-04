@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://de5rpb8ctl88f"]
+
+[ext_resource type="Script" path="res://Scenes/Container.gd" id="1_1q8dv"]
+[ext_resource type="Shader" path="res://Assets/Shaders/outline.gdshader" id="2_jj57g"]
+[ext_resource type="Texture2D" uid="uid://gt2wtrkd3dmb" path="res://Assets/Sprites/Cutting-Board.png" id="2_m8j62"]
+[ext_resource type="AudioStream" uid="uid://bfjeq3lep6b83" path="res://Assets/Audio/drop_1.ogg" id="4_o65ug"]
+[ext_resource type="AudioStream" uid="uid://c53u8jgtgwmbm" path="res://Assets/Audio/drop_2.ogg" id="5_q508j"]
+[ext_resource type="AudioStream" uid="uid://hxdyj3cgk3vw" path="res://Assets/Audio/error_1.ogg" id="6_6q7am"]
+[ext_resource type="AudioStream" uid="uid://b8fd8lgishqo5" path="res://Assets/Audio/error_2.ogg" id="7_vn6hp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_drhxd"]
+shader = ExtResource("2_jj57g")
+shader_parameter/active = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksf04"]
+size = Vector2(32, 16)
+
+[node name="Container" type="Area2D"]
+script = ExtResource("1_1q8dv")
+
+[node name="Script" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_drhxd")
+texture = ExtResource("2_m8j62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ksf04")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Drop1" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("4_o65ug")
+
+[node name="Drop2" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_q508j")
+
+[node name="Err1" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("6_6q7am")
+
+[node name="Err2" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("7_vn6hp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
