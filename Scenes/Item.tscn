@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://bsc1u0uvlgkoh"]
+
+[ext_resource type="Script" path="res://Scenes/Item.gd" id="1_llf30"]
+[ext_resource type="Texture2D" uid="uid://b2h6sqvrglmkx" path="res://Assets/Sprites/Meat.png" id="1_x452k"]
+[ext_resource type="Shader" path="res://Assets/Shaders/outline.gdshader" id="2_35b47"]
+[ext_resource type="AudioStream" uid="uid://d3nkp5mitd74s" path="res://Assets/Audio/select_1.ogg" id="4_y7drs"]
+[ext_resource type="AudioStream" uid="uid://discxw52hotsi" path="res://Assets/Audio/select_2.ogg" id="5_ot12r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jpyja"]
+radius = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_naxq0"]
+shader = ExtResource("2_35b47")
+shader_parameter/active = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v6fjb"]
+
+[node name="Item" type="Area2D"]
+script = ExtResource("1_llf30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jpyja")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_naxq0")
+texture = ExtResource("1_x452k")
+
+[node name="IsUnclean" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IsUnclean"]
+visible = false
+shape = SubResource("CircleShape2D_v6fjb")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Pick1" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("4_y7drs")
+
+[node name="Pick2" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("5_ot12r")
