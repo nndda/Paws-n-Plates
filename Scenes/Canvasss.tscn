@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvc7ico6llq2p"]
+
+[ext_resource type="Texture2D" uid="uid://dg5ha0vyj6ths" path="res://Assets/Misc/1_FFF.tres" id="1_kpypj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqm2t"]
+texture = ExtResource("1_kpypj")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qes6b"]
+tile_size = Vector2i(1, 1)
+sources/0 = SubResource("TileSetAtlasSource_jqm2t")
+
+[node name="Canvasss" type="TileMapLayer"]
+tile_set = SubResource("TileSet_qes6b")
