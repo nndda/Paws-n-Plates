@@ -1,23 +1,680 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnlbebacqaor3"]
+[gd_scene load_steps=42 format=4 uid="uid://dnlbebacqaor3"]
 
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_o2l3d"]
+[ext_resource type="PackedScene" uid="uid://cih1ns6w5yjia" path="res://Scenes/Containers/BowlSeasoning.tscn" id="2_5mo4n"]
+[ext_resource type="PackedScene" uid="uid://b3n0fd15qnccs" path="res://Scenes/Items/Meat.tscn" id="2_88vrt"]
+[ext_resource type="Texture2D" uid="uid://do70i73rcu8uv" path="res://Assets/Sprites/SinkStove.png" id="2_hphdf"]
+[ext_resource type="Texture2D" uid="uid://ckipcuyadov1o" path="res://Assets/Sprites/Fridge-Closed.png" id="2_p6t18"]
+[ext_resource type="PackedScene" uid="uid://0seqbpsjhtc4" path="res://Scenes/Containers/CuttingBoard.tscn" id="3_c7pt5"]
+[ext_resource type="PackedScene" uid="uid://ckbdrkit4bq31" path="res://Scenes/Containers/WashHandThingy.tscn" id="3_g0nl2"]
+[ext_resource type="PackedScene" uid="uid://onfx0ifog0jj" path="res://Scenes/Containers/FryingPan.tscn" id="3_o44jj"]
+[ext_resource type="PackedScene" uid="uid://0a6bhokkw87f" path="res://Scenes/Kittens/KittenKuro.tscn" id="4_fvrxt"]
+[ext_resource type="PackedScene" uid="uid://ccualqjiwdp7y" path="res://Scenes/Items/Knive.tscn" id="4_kynj7"]
+[ext_resource type="PackedScene" uid="uid://v0h6o2pxudx3" path="res://Scenes/Containers/BowlEgg.tscn" id="4_uuu1t"]
+[ext_resource type="PackedScene" uid="uid://dw35mja52soo5" path="res://Scenes/Kittens/KittenShiro.tscn" id="5_b7405"]
+[ext_resource type="PackedScene" uid="uid://bhiqxkwqw4m5f" path="res://Scenes/Items/Eggs.tscn" id="6_ic8yo"]
+[ext_resource type="Texture2D" uid="uid://cd6tlnoyjtbvd" path="res://Assets/CursorPoint.png" id="6_p8ca3"]
+[ext_resource type="Texture2D" uid="uid://dw35adav7360x" path="res://Assets/Cursor5.png" id="7_8ckui"]
+[ext_resource type="Script" path="res://Scenes/Cursor.gd" id="7_els1s"]
+[ext_resource type="PackedScene" uid="uid://wsvnd3kvm642" path="res://Scenes/Items/Whisk.tscn" id="7_n7f43"]
+[ext_resource type="Texture2D" uid="uid://cvhvtg6taikjr" path="res://Assets/CursorGrab.png" id="8_3jlo4"]
+[ext_resource type="PackedScene" uid="uid://d0qlng8be4f1r" path="res://Scenes/Containers/PlateFinal.tscn" id="9_ai4fm"]
+[ext_resource type="PackedScene" uid="uid://yhm8kaqrki8l" path="res://Scenes/Kittens/KittenOren.tscn" id="10_hkwlr"]
+[ext_resource type="Texture2D" uid="uid://dmxq6wvxhs6op" path="res://Assets/CursorNuhUh.png" id="10_m1kef"]
+[ext_resource type="PackedScene" uid="uid://cccmo6oxgqtmd" path="res://Scenes/Items/Flour.tscn" id="10_p3r6d"]
+[ext_resource type="PackedScene" uid="uid://dd6pl5ytd4muc" path="res://Scenes/Items/Salt.tscn" id="11_5v634"]
+[ext_resource type="PackedScene" uid="uid://6g6mk0cpw2ws" path="res://Scenes/KittenPoi.tscn" id="11_bdjqi"]
+[ext_resource type="PackedScene" uid="uid://dp47ske6uyf22" path="res://Scenes/Items/Pepper.tscn" id="12_r3hdk"]
+[ext_resource type="AudioStream" uid="uid://bwpjaxjmg4ana" path="res://Assets/Audio/BGM/2_cafe_avenue_master.ogg" id="14_psxqr"]
+[ext_resource type="PackedScene" uid="uid://clo3aj8aj2pfv" path="res://Scenes/Items/Soap.tscn" id="15_u0oow"]
+[ext_resource type="Script" path="res://Scenes/TutorialAgent.gd" id="22_qpcof"]
+[ext_resource type="Texture2D" uid="uid://ber1uqy8vimlq" path="res://Assets/Sprites/MeatFinished.png" id="23_2s8ie"]
+[ext_resource type="PackedScene" uid="uid://dvc7ico6llq2p" path="res://Scenes/Canvasss.tscn" id="23_m2vu8"]
+[ext_resource type="Script" path="res://Scenes/CounterTimerStopwatchTimeThingy.gd" id="30_ly250"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fdyrn"]
-size = Vector2(8, 8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucq6s"]
+size = Vector2(44, 18)
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("cursor")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3yur"]
+size = Vector2(20, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6d5rt"]
+size = Vector2(36, 16)
+
+[sub_resource type="Gradient" id="Gradient_b22gv"]
+offsets = PackedFloat32Array(0.5, 0.5)
+colors = PackedColorArray(0.901961, 0.564706, 0.305882, 1, 0.803922, 0.407843, 0.239216, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ufs4t"]
+noise_type = 0
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yx5xh"]
+height = 1
+color_ramp = SubResource("Gradient_b22gv")
+noise = SubResource("FastNoiseLite_ufs4t")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvau8"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m40lm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6fwf1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ryenc"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("cursor", "nugget_count_indicater", "kitten_poi", "dirty_hand_label")]
 script = ExtResource("1_o2l3d")
 cursor = NodePath("Cursor")
+nugget_count_indicater = NodePath("UI/Control/NuggetCount")
+kitten_poi = [NodePath("Scene/KittenPoi/KittenPoiRaw"), NodePath("Scene/KittenPoi/KittenPoiEgged"), NodePath("Scene/KittenPoi/KittenPoiSeasoned"), NodePath("Scene/KittenPoi/KittenPoiFinish")]
+dirty_hand_label = NodePath("UI/Control/DirtyHand")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(130, 40)
+[node name="Scene" type="Node2D" parent="."]
+
+[node name="BG" type="Node2D" parent="Scene"]
+
+[node name="Floor" type="ColorRect" parent="Scene/BG"]
+offset_left = -14.0
+offset_top = -8.0
+offset_right = 508.0
+offset_bottom = 128.0
+color = Color(0.180392, 0.133333, 0.184314, 1)
+
+[node name="Wall" type="ColorRect" parent="Scene/BG/Floor"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+color = Color(0.243137, 0.207843, 0.27451, 1)
+
+[node name="Wall2" type="ColorRect" parent="Scene/BG/Floor/Wall"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -116.0
+offset_bottom = 24.0
+grow_horizontal = 2
+color = Color(0.384314, 0.333333, 0.396078, 1)
+
+[node name="KittenPoi" type="Node2D" parent="Scene"]
+
+[node name="KittenPoiRaw" parent="Scene/KittenPoi" node_paths=PackedStringArray("container") instance=ExtResource("11_bdjqi")]
+position = Vector2(62, 88)
+container = NodePath("../../Containers/CuttingBoard")
+
+[node name="CollisionShape2D" parent="Scene/KittenPoi/KittenPoiRaw" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ucq6s")
+
+[node name="Point" parent="Scene/KittenPoi/KittenPoiRaw" index="1"]
+position = Vector2(0, -14)
+
+[node name="KittenPoiEgged" parent="Scene/KittenPoi" node_paths=PackedStringArray("container") instance=ExtResource("11_bdjqi")]
+position = Vector2(152, 86)
+container = NodePath("../../Containers/BowlEgg")
+
+[node name="CollisionShape2D" parent="Scene/KittenPoi/KittenPoiEgged" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_e3yur")
+
+[node name="Point" parent="Scene/KittenPoi/KittenPoiEgged" index="1"]
+position = Vector2(0, -10)
+
+[node name="KittenPoiSeasoned" parent="Scene/KittenPoi" node_paths=PackedStringArray("container") instance=ExtResource("11_bdjqi")]
+position = Vector2(234, 86)
+container = NodePath("../../Containers/BowlSeasoning")
+
+[node name="CollisionShape2D" parent="Scene/KittenPoi/KittenPoiSeasoned" index="0"]
+position = Vector2(0, 3)
+
+[node name="Point" parent="Scene/KittenPoi/KittenPoiSeasoned" index="1"]
+position = Vector2(0, -12)
+
+[node name="KittenPoiFinish" parent="Scene/KittenPoi" node_paths=PackedStringArray("container") instance=ExtResource("11_bdjqi")]
+position = Vector2(452, 86)
+container = NodePath("../../Containers/PlateFinal")
+
+[node name="CollisionShape2D" parent="Scene/KittenPoi/KittenPoiFinish" index="0"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_6d5rt")
+
+[node name="Point" parent="Scene/KittenPoi/KittenPoiFinish" index="1"]
+position = Vector2(2, -12)
+
+[node name="Kittens" type="Node2D" parent="Scene"]
+process_mode = 4
+visible = false
+y_sort_enabled = true
+
+[node name="KittenOren" parent="Scene/Kittens" instance=ExtResource("10_hkwlr")]
+position = Vector2(122, 19)
+
+[node name="KittenKuro" parent="Scene/Kittens" instance=ExtResource("4_fvrxt")]
+position = Vector2(146, 28)
+
+[node name="KittenShiro" parent="Scene/Kittens" instance=ExtResource("5_b7405")]
+position = Vector2(160, 19)
+
+[node name="Table" type="ColorRect" parent="Scene"]
+offset_left = -14.0
+offset_top = 76.0
+offset_right = 492.0
+offset_bottom = 114.0
+color = Color(0.901961, 0.564706, 0.305882, 1)
+
+[node name="TableBorder2" type="ColorRect" parent="Scene/Table"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+color = Color(0.478431, 0.188235, 0.270588, 1)
+
+[node name="TableBorder" type="ColorRect" parent="Scene/Table"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+color = Color(0.803922, 0.407843, 0.239216, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Scene/Table"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = 4.0
+offset_bottom = 3.0
+grow_horizontal = 2
+texture = SubResource("NoiseTexture2D_yx5xh")
+
+[node name="SinkStove" type="Sprite2D" parent="Scene"]
+position = Vector2(352, 84)
+texture = ExtResource("2_hphdf")
+
+[node name="Containers" type="Node2D" parent="Scene"]
+
+[node name="PlateFinal" parent="Scene/Containers" instance=ExtResource("9_ai4fm")]
+position = Vector2(454, 92)
+
+[node name="FryingPan" parent="Scene/Containers" instance=ExtResource("3_o44jj")]
+position = Vector2(394, 89)
+
+[node name="Label" type="Label" parent="Scene/Containers/FryingPan"]
+visible = false
+offset_left = -32.0
+offset_top = -35.0
+offset_right = 8.0
+offset_bottom = -22.0
+text = "wq"
+
+[node name="WashHandThingy" parent="Scene/Containers" instance=ExtResource("3_g0nl2")]
+position = Vector2(310, 74)
+
+[node name="BowlSeasoning" parent="Scene/Containers" instance=ExtResource("2_5mo4n")]
+position = Vector2(234, 94)
+
+[node name="BowlEgg" parent="Scene/Containers" instance=ExtResource("4_uuu1t")]
+position = Vector2(152, 92)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene/Containers"]
+position = Vector2(15, 78)
+texture = ExtResource("2_p6t18")
+
+[node name="CuttingBoard" parent="Scene/Containers" instance=ExtResource("3_c7pt5")]
+position = Vector2(62, 92)
+
+[node name="Items" type="Node2D" parent="Scene"]
+
+[node name="Meat" parent="Scene/Items" instance=ExtResource("2_88vrt")]
+position = Vector2(6, 83)
+rotation = 3.14159
+
+[node name="Knive" parent="Scene/Items" instance=ExtResource("4_kynj7")]
+position = Vector2(100, 92)
+
+[node name="Eggs" parent="Scene/Items" instance=ExtResource("6_ic8yo")]
+position = Vector2(124, 92)
+
+[node name="Whisk" parent="Scene/Items" instance=ExtResource("7_n7f43")]
+position = Vector2(180, 92)
+
+[node name="Flour" parent="Scene/Items" instance=ExtResource("10_p3r6d")]
+position = Vector2(206, 80)
+
+[node name="Salt" parent="Scene/Items" instance=ExtResource("11_5v634")]
+position = Vector2(258, 78)
+
+[node name="Pepper" parent="Scene/Items" instance=ExtResource("12_r3hdk")]
+position = Vector2(276, 92)
+
+[node name="Soap" parent="Scene/Items" instance=ExtResource("15_u0oow")]
+position = Vector2(333, 74)
+
+[node name="TutorialAgent" type="Node2D" parent="Scene"]
+script = ExtResource("22_qpcof")
+
+[node name="GrabNChopMeat" type="Node2D" parent="Scene/TutorialAgent"]
+visible = false
+
+[node name="GrabNChopMeat2" type="Label" parent="Scene/TutorialAgent/GrabNChopMeat"]
+offset_left = 6.0
+offset_top = 22.0
+offset_right = 252.0
+offset_bottom = 67.0
+scale = Vector2(0.5, 0.5)
+text = "drag and drop the
+meat from the fridge
+to the cutting board"
+
+[node name="Canvasss" parent="Scene/TutorialAgent/GrabNChopMeat" instance=ExtResource("23_m2vu8")]
+position = Vector2(44, 59)
+tile_map_data = PackedByteArray("AADy//j/AAAAAAAAAADz//j/AAAAAAAAAADz//n/AAAAAAAAAAD0//f/AAAAAAAAAAD0//j/AAAAAAAAAAD1//f/AAAAAAAAAAD6//f/AAAAAAAAAAD7//f/AAAAAAAAAAD7//j/AAAAAAAAAAD8//j/AAAAAAAAAAD8//n/AAAAAAAAAAD9//n/AAAAAAAAAAD9//r/AAAAAAAAAAD+//r/AAAAAAAAAAD+//v/AAAAAAAAAAD///v/AAAAAAAAAAD///z/AAAAAAAAAAAAAPz/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAABAP7/AAAAAAAAAAABAAIAAAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAIAAAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAP3/AAAAAAAAAAAGAP//AAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAjAAYAAAAAAAAAAAAjAAcAAAAAAAAAAAAjAAkAAAAAAAAAAAAjAAoAAAAAAAAAAAAjAAsAAAAAAAAAAAAkAAkAAAAAAAAAAAAkAAoAAAAAAAAAAAAkAAsAAAAAAAAAAAAlAAgAAAAAAAAAAAAlAAkAAAAAAAAAAAAlAAoAAAAAAAAAAAAlAAsAAAAAAAAAAAAmAAcAAAAAAAAAAAAmAAgAAAAAAAAAAAAmAAkAAAAAAAAAAAAmAAsAAAAAAAAAAAAnAAcAAAAAAAAAAAAnAAgAAAAAAAAAAAAnAAsAAAAAAAAAAAAoAAYAAAAAAAAAAAAoAAcAAAAAAAAAAAAoAAsAAAAAAAAAAAApAAUAAAAAAAAAAAApAAYAAAAAAAAAAAAqAAQAAAAAAAAAAAAqAAUAAAAAAAAAAAArAAQAAAAAAAAAAAArAAUAAAAAAAAAAAAsAAQAAAAAAAAAAAAsAAUAAAAAAAAAAAAtAAQAAAAAAAAAAAAtAAUAAAAAAAAAAAAuAAUAAAAAAAAAAAAuAAYAAAAAAAAAAAAvAAYAAAAAAAAAAAAvAAcAAAAAAAAAAAAwAAcAAAAAAAAAAAAwAAgAAAAAAAAAAAAwAAkAAAAAAAAAAAAxAAgAAAAAAAAAAAAxAAkAAAAAAAAAAAAxAAoAAAAAAAAAAAAxAAsAAAAAAAAAAAAyAAoAAAAAAAAAAAAyAAsAAAAAAAAAAAAyAAwAAAAAAAAAAAAyAA0AAAAAAAAAAAAzAAwAAAAAAAAAAAAzAA0AAAAAAAAAAAAzAA4AAAAAAAAAAAAjAAgAAAAAAAAAAAAGAP7/AAAAAAAAAAD5//f/AAAAAAAAAAD4//f/AAAAAAAAAAD3//f/AAAAAAAAAAD2//f/AAAAAAAAAAD5//b/AAAAAAAAAAD3//b/AAAAAAAAAAD4//b/AAAAAAAAAAAJAPb/AAAAAAAAAAAKAPX/AAAAAAAAAAALAPT/AAAAAAAAAAALAPX/AAAAAAAAAAALAPb/AAAAAAAAAAALAPf/AAAAAAAAAAALAPj/AAAAAAAAAAALAPn/AAAAAAAAAAAJAPr/AAAAAAAAAAAKAPr/AAAAAAAAAAALAPr/AAAAAAAAAAAMAPr/AAAAAAAAAAANAPr/AAAAAAAAAAAnAP3/AAAAAAAAAAAoAPz/AAAAAAAAAAApAPz/AAAAAAAAAAAqAP3/AAAAAAAAAAAqAP7/AAAAAAAAAAApAP//AAAAAAAAAAAoAAAAAAAAAAAAAAAnAAEAAAAAAAAAAAAoAAEAAAAAAAAAAAApAAEAAAAAAAAAAAAqAAEAAAAAAAAAAAA=")
+
+[node name="Label" type="RichTextLabel" parent="Scene/TutorialAgent/GrabNChopMeat"]
+offset_left = 97.0
+offset_top = 28.0
+offset_right = 223.0
+offset_bottom = 54.0
+scale = Vector2(0.5, 0.5)
+bbcode_enabled = true
+text = "press [color=fbb954][space][/color]/[color=fbb954][esc][/color] to skip the tutorial"
+fit_content = true
+
+[node name="Egg" type="Node2D" parent="Scene/TutorialAgent"]
+visible = false
+
+[node name="Label" type="Label" parent="Scene/TutorialAgent/Egg"]
+visible = false
+offset_left = 101.0
+offset_top = 25.0
+offset_right = 299.0
+offset_bottom = 54.0
+scale = Vector2(0.5, 0.5)
+text = "drag the egg to the bowl,
+& then drag the whisk"
+horizontal_alignment = 1
+
+[node name="four" type="RichTextLabel" parent="Scene/TutorialAgent/Egg"]
+offset_left = 101.0
+offset_top = 25.0
+offset_right = 299.0
+offset_bottom = 54.0
+scale = Vector2(0.5, 0.5)
+bbcode_enabled = true
+text = "[center]all container can only
+holds up to [color=#fbb954]4 items[/color][/center]"
+fit_content = true
+
+[node name="Canvasss" parent="Scene/TutorialAgent/Egg" instance=ExtResource("23_m2vu8")]
+position = Vector2(152, 54)
+tile_map_data = PackedByteArray("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AADh//7/AAAAAAAAAADi//7/AAAAAAAAAADj////AAAAAAAAAADk////AAAAAAAAAADl/wAAAAAAAAAAAADQ/wAAAAAAAAAAAADO/wIAAAAAAAAAAADN/wQAAAAAAAAAAADP/wAAAAAAAAAAAADO/wEAAAAAAAAAAADP/wEAAAAAAAAAAADQ////AAAAAAAAAADS//7/AAAAAAAAAADU//7/AAAAAAAAAADW//3/AAAAAAAAAADc//3/AAAAAAAAAADb//3/AAAAAAAAAADn/wEAAAAAAAAAAADc/w0AAAAAAAAAAADd/wwAAAAAAAAAAADe/wsAAAAAAAAAAADe/wwAAAAAAAAAAADe/w0AAAAAAAAAAADe/w4AAAAAAAAAAADe/w8AAAAAAAAAAADe/xAAAAAAAAAAAADe/xEAAAAAAAAAAADc/xEAAAAAAAAAAADd/xEAAAAAAAAAAADf/xEAAAAAAAAAAADg/xEAAAAAAAAAAAAdAAsAAAAAAAAAAAAeAAsAAAAAAAAAAAAcAAwAAAAAAAAAAAAfAAwAAAAAAAAAAAAfAA0AAAAAAAAAAAAeAA4AAAAAAAAAAAAdAA8AAAAAAAAAAAAcABAAAAAAAAAAAAAdABAAAAAAAAAAAAAeABAAAAAAAAAAAAAfABAAAAAAAAAAAADW//P/AAAAAAAAAADX//P/AAAAAAAAAADY//P/AAAAAAAAAADZ//T/AAAAAAAAAADZ//X/AAAAAAAAAADY//b/AAAAAAAAAADX//b/AAAAAAAAAADZ//f/AAAAAAAAAADZ//j/AAAAAAAAAADY//n/AAAAAAAAAADX//n/AAAAAAAAAADW//n/AAAAAAAAAAA=")
+
+[node name="Seasoning" type="Node2D" parent="Scene/TutorialAgent"]
+visible = false
+
+[node name="four" type="Label" parent="Scene/TutorialAgent/Seasoning"]
+offset_left = 187.0
+offset_top = 28.0
+offset_right = 385.0
+offset_bottom = 57.0
+scale = Vector2(0.5, 0.5)
+text = "there's no particular
+order for the seasoning"
+horizontal_alignment = 1
+
+[node name="Canvasss" parent="Scene/TutorialAgent/Seasoning" instance=ExtResource("23_m2vu8")]
+position = Vector2(232, 57)
+tile_map_data = PackedByteArray("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")
+
+[node name="Cats" type="Node2D" parent="Scene/TutorialAgent"]
+visible = false
+
+[node name="Label" type="Label" parent="Scene/TutorialAgent/Cats"]
+offset_left = 270.0
+offset_top = 25.0
+offset_right = 474.0
+offset_bottom = 54.0
+scale = Vector2(0.5, 0.5)
+text = "wash ur hands after touching cats
+by dragging the soap to the faucet"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Scene/TutorialAgent/Cats"]
+offset_left = 196.0
+offset_top = 48.0
+offset_right = 400.0
+offset_bottom = 77.0
+scale = Vector2(0.5, 0.5)
+text = "u cant touch food items
+if ur hands r dirty"
+horizontal_alignment = 2
+
+[node name="Canvasss" parent="Scene/TutorialAgent/Cats" instance=ExtResource("23_m2vu8")]
+position = Vector2(319, 50)
+tile_map_data = PackedByteArray("AAAMAAYAAAAAAAAAAAALAAYAAAAAAAAAAAALAAUAAAAAAAAAAAAKAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAD5/wIAAAAAAAAAAAD4/wMAAAAAAAAAAAD4/wQAAAAAAAAAAAD3/wUAAAAAAAAAAAD3/wYAAAAAAAAAAAD3/wcAAAAAAAAAAAD2/wgAAAAAAAAAAAD2/wkAAAAAAAAAAAD3/wkAAAAAAAAAAAD1/wUAAAAAAAAAAAD1/wYAAAAAAAAAAAD1/wcAAAAAAAAAAAD1/wgAAAAAAAAAAAD1/wkAAAAAAAAAAAD4/wkAAAAAAAAAAAD5/wkAAAAAAAAAAAD3/wgAAAAAAAAAAAD8/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAD6/wMAAAAAAAAAAAD5/wMAAAAAAAAAAAD4/wUAAAAAAAAAAAD2/wcAAAAAAAAAAAD1/wQAAAAAAAAAAAA=")
+
+[node name="Last" type="Node2D" parent="Scene/TutorialAgent"]
+visible = false
+
+[node name="four" type="RichTextLabel" parent="Scene/TutorialAgent/Last"]
+offset_left = 372.0
+offset_top = 12.0
+offset_right = 570.0
+offset_bottom = 90.0
+scale = Vector2(0.5, 0.5)
+bbcode_enabled = true
+text = "[center]move the meat to the pan,
+wait until it is cooked,
+and then move it to the plate
+
+[color=fbb954][space][/color]/[color=fbb954][esc][/color]  - end tutorial
+[/center]"
+fit_content = true
+
+[node name="Canvasss" parent="Scene/TutorialAgent/Last" instance=ExtResource("23_m2vu8")]
+position = Vector2(369, 53)
+tile_map_data = PackedByteArray("AAB4/w4AAAAAAAAAAAB4/w0AAAAAAAAAAAB5/wwAAAAAAAAAAAB5/wsAAAAAAAAAAAB6/woAAAAAAAAAAAB6/wkAAAAAAAAAAAB7/wgAAAAAAAAAAAB7/wcAAAAAAAAAAAB8/wYAAAAAAAAAAAB8/wUAAAAAAAAAAAB9/wQAAAAAAAAAAAB+/wMAAAAAAAAAAAB+/wIAAAAAAAAAAAB//wEAAAAAAAAAAAB//wAAAAAAAAAAAACA////AAAAAAAAAACB//7/AAAAAAAAAACC//3/AAAAAAAAAACD//z/AAAAAAAAAACE//v/AAAAAAAAAACF//r/AAAAAAAAAACG//n/AAAAAAAAAACH//j/AAAAAAAAAACI//j/AAAAAAAAAACJ//f/AAAAAAAAAACK//b/AAAAAAAAAACL//b/AAAAAAAAAACM//X/AAAAAAAAAACN//X/AAAAAAAAAACO//X/AAAAAAAAAACP//T/AAAAAAAAAACQ//T/AAAAAAAAAACR//T/AAAAAAAAAACS//P/AAAAAAAAAACT//P/AAAAAAAAAACU//P/AAAAAAAAAACV//L/AAAAAAAAAACW//L/AAAAAAAAAACX//H/AAAAAAAAAACY//H/AAAAAAAAAACZ//H/AAAAAAAAAACa//H/AAAAAAAAAACb//D/AAAAAAAAAACc//D/AAAAAAAAAACd//D/AAAAAAAAAACe//D/AAAAAAAAAACf//D/AAAAAAAAAACg/+//AAAAAAAAAACh/+//AAAAAAAAAACi/+//AAAAAAAAAACj/+//AAAAAAAAAACk/+//AAAAAAAAAACl/+//AAAAAAAAAACm/+7/AAAAAAAAAACn/+7/AAAAAAAAAACo/+7/AAAAAAAAAACp/+7/AAAAAAAAAACq/+7/AAAAAAAAAACr/+//AAAAAAAAAACs/+//AAAAAAAAAACt/+//AAAAAAAAAACu//D/AAAAAAAAAACv//D/AAAAAAAAAACw//D/AAAAAAAAAACx//H/AAAAAAAAAACy//L/AAAAAAAAAACz//P/AAAAAAAAAAC0//T/AAAAAAAAAAC0//X/AAAAAAAAAAC0//b/AAAAAAAAAAC0//f/AAAAAAAAAAC0//j/AAAAAAAAAACz//n/AAAAAAAAAACz//r/AAAAAAAAAACy//v/AAAAAAAA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")
+
+[node name="Cursor" type="Sprite2D" parent="."]
+position = Vector2(92, 147)
+texture = ExtResource("6_p8ca3")
+offset = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="Cursor"]
+position = Vector2(-8, -163)
 limit_left = 0
 limit_top = 0
-limit_right = 360
+limit_right = 480
 limit_bottom = 108
 limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.8
+drag_top_margin = 1.0
+drag_right_margin = 0.8
+drag_bottom_margin = 1.0
 editor_draw_limits = true
+editor_draw_drag_margin = true
 
-[node name="Cursor" type="Sprite2D" parent="."]
-texture = SubResource("PlaceholderTexture2D_fdyrn")
+[node name="CursorArea" type="Area2D" parent="Cursor"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("7_els1s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/CursorArea"]
+shape = SubResource("CircleShape2D_uvau8")
+
+[node name="IsUnclean" type="Area2D" parent="Cursor/CursorArea"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor/CursorArea/IsUnclean"]
+shape = SubResource("CircleShape2D_m40lm")
+
+[node name="Indicator" type="Node2D" parent="Cursor"]
+
+[node name="Normal" type="Sprite2D" parent="Cursor/Indicator"]
+position = Vector2(8.5, 8.5)
+texture = ExtResource("7_8ckui")
+
+[node name="Grabable" type="Sprite2D" parent="Cursor/Indicator"]
+visible = false
+position = Vector2(8.5, 11.5)
+texture = ExtResource("8_3jlo4")
+
+[node name="NuhUh" type="Sprite2D" parent="Cursor/Indicator"]
+visible = false
+position = Vector2(9, 8)
+texture = ExtResource("10_m1kef")
+
+[node name="MousePos" type="Label" parent="."]
+visible = false
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 74.0
+offset_bottom = 15.0
+text = "current_item"
+label_settings = SubResource("LabelSettings_6fwf1")
+
+[node name="ContainerDbg" type="Label" parent="."]
+visible = false
+offset_left = 118.0
+offset_top = 2.0
+offset_right = 190.0
+offset_bottom = 15.0
+text = "current_item"
+label_settings = SubResource("LabelSettings_6fwf1")
+
+[node name="CurrentItemScn" type="Label" parent="."]
+visible = false
+offset_left = 4.0
+offset_top = 90.0
+offset_right = 76.0
+offset_bottom = 103.0
+text = "current_item"
+label_settings = SubResource("LabelSettings_6fwf1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_psxqr")
+volume_db = -24.762
+autoplay = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TIMEEEEE" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 1.0
+offset_right = 98.0
+offset_bottom = 14.0
+scale = Vector2(0.6, 0.6)
+text = "00:00"
+script = ExtResource("30_ly250")
+
+[node name="Timer" type="Timer" parent="UI/Control/TIMEEEEE"]
+
+[node name="DirtyHand" type="Label" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -76.0
+offset_right = 50.0
+offset_bottom = 13.0
+grow_horizontal = 0
+scale = Vector2(0.6, 0.6)
+text = "Your hands are dirty!"
+
+[node name="NuggetCount" type="Label" parent="UI/Control"]
+layout_mode = 2
+offset_left = 9.0
+offset_top = 1.0
+offset_right = 33.0
+offset_bottom = 14.0
+scale = Vector2(0.7, 0.7)
+text = "0/24"
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control"]
+layout_mode = 2
+offset_left = 1.0
+offset_right = 8.0
+offset_bottom = 13.0
+texture = ExtResource("23_2s8ie")
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="UI/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ryenc")
+
+[node name="Left" type="Label" parent="UI/Control/HBoxContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="Control" type="Control" parent="UI/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right" type="Label" parent="UI/Control/HBoxContainer"]
+layout_mode = 2
+text = ">"
+
+[node name="VSeparator2" type="VSeparator" parent="UI/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ryenc")
+
+[node name="DefeatScreen" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/DefeatScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 56.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.745098)
+
+[node name="Label" type="Label" parent="UI/DefeatScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 14.0
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "a kitty has consumed
+ur chicken nugget"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="UI/DefeatScreen"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.745098)
+
+[node name="Restart\'" type="Label" parent="UI/DefeatScreen/ColorRect2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 17.0
+grow_horizontal = 2
+scale = Vector2(0.6, 0.6)
+text = "press [R] or [Esc] to restart"
+horizontal_alignment = 1
+
+[node name="WinScreen" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect3" type="ColorRect" parent="UI/WinScreen"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -79.0
+offset_right = 4.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.745098)
+
+[node name="Label" type="Label" parent="UI/WinScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 75.0
+grow_horizontal = 2
+text = "victory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/WinScreen/Label"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = 46.0
+offset_right = 127.0
+offset_bottom = 59.0
+grow_horizontal = 2
+scale = Vector2(0.6, 0.6)
+text = "ur precious chicken nuggets left untouched"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="UI/WinScreen/Label"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = 56.0
+offset_right = 127.0
+offset_bottom = 69.0
+grow_horizontal = 2
+scale = Vector2(0.6, 0.6)
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IntervalUpdatePoi" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.3
+autostart = true
+
+[connection signal="nugget_received_from_pan" from="Scene/Containers/PlateFinal/Script" to="Scene/Containers/FryingPan/Script" method="_on_script_nugget_received_from_pan"]
+[connection signal="area_entered" from="Cursor/CursorArea" to="Cursor/CursorArea" method="_on_area_entered"]
+[connection signal="area_exited" from="Cursor/CursorArea" to="Cursor/CursorArea" method="_on_area_exited"]
+[connection signal="area_entered" from="Cursor/CursorArea/IsUnclean" to="Cursor/CursorArea" method="_on_is_unclean_area_entered"]
+[connection signal="area_exited" from="Cursor/CursorArea/IsUnclean" to="Cursor/CursorArea" method="_on_is_unclean_area_exited"]
+[connection signal="timeout" from="UI/Control/TIMEEEEE/Timer" to="UI/Control/TIMEEEEE" method="_on_timer_timeout"]
+[connection signal="timeout" from="IntervalUpdatePoi" to="." method="_on_interval_update_poi_timeout"]
+
+[editable path="Scene/KittenPoi/KittenPoiRaw"]
+[editable path="Scene/KittenPoi/KittenPoiEgged"]
+[editable path="Scene/KittenPoi/KittenPoiSeasoned"]
+[editable path="Scene/KittenPoi/KittenPoiFinish"]
+[editable path="Scene/Containers/PlateFinal"]
+[editable path="Scene/Containers/FryingPan"]
+[editable path="Scene/Containers/BowlSeasoning"]
