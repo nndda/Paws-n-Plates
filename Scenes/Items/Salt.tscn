@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd6pl5ytd4muc"]
+
+[ext_resource type="PackedScene" uid="uid://bsc1u0uvlgkoh" path="res://Scenes/Item.tscn" id="1_kbsu8"]
+[ext_resource type="Texture2D" uid="uid://dnl1o42lamdke" path="res://Assets/Sprites/Salt.png" id="2_wjeav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nbxp"]
+size = Vector2(12, 20)
+
+[node name="Salt" instance=ExtResource("1_kbsu8")]
+item_name = 11
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_6nbxp")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_wjeav")

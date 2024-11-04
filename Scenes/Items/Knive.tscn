@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccualqjiwdp7y"]
+
+[ext_resource type="PackedScene" uid="uid://bsc1u0uvlgkoh" path="res://Scenes/Item.tscn" id="1_x4hco"]
+[ext_resource type="Texture2D" uid="uid://2hha7r5eukt2" path="res://Assets/Sprites/Knive.png" id="2_kl7y0"]
+
+[node name="Knive" instance=ExtResource("1_x4hco")]
+item_name = 7
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_kl7y0")

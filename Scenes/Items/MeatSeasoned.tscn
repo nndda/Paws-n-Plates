@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dllkif5s5ao7o"]
+
+[ext_resource type="PackedScene" uid="uid://bsc1u0uvlgkoh" path="res://Scenes/Item.tscn" id="1_pu73x"]
+[ext_resource type="Texture2D" uid="uid://bmlggfm8ay5tt" path="res://Assets/Sprites/MeatSeasoned.png" id="2_eu2ai"]
+[ext_resource type="Script" path="res://Scenes/ItemsFlash.gd" id="3_n0awj"]
+
+[node name="MeatSeasoned" instance=ExtResource("1_pu73x")]
+item_name = 6
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_eu2ai")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" index="0"]
+texture = ExtResource("2_eu2ai")
+script = ExtResource("3_n0awj")

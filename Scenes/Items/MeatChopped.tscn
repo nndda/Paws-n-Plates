@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn5wcqa7m8s5q"]
+
+[ext_resource type="PackedScene" uid="uid://bsc1u0uvlgkoh" path="res://Scenes/Item.tscn" id="1_5wnad"]
+[ext_resource type="Texture2D" uid="uid://yuws7e2pkccm" path="res://Assets/Sprites/MeatChopped.png" id="2_juv5g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5rkjh"]
+radius = 4.0
+
+[node name="MeatChopped" instance=ExtResource("1_5wnad")]
+item_name = 4
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_5rkjh")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_juv5g")

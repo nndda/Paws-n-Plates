@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwqxlqmyoh8uu"]
+
+[ext_resource type="PackedScene" uid="uid://bsc1u0uvlgkoh" path="res://Scenes/Item.tscn" id="1_74sdx"]
+[ext_resource type="Texture2D" uid="uid://xfc5ei2s5jrd" path="res://Assets/Sprites/MeatEgged.png" id="2_y3414"]
+[ext_resource type="Script" path="res://Scenes/ItemsFlash.gd" id="3_l07kr"]
+
+[node name="MeatEgged" instance=ExtResource("1_74sdx")]
+item_name = 5
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_y3414")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" index="0"]
+texture = ExtResource("2_y3414")
+script = ExtResource("3_l07kr")

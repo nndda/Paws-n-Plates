@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3n0fd15qnccs"]
+
+[ext_resource type="PackedScene" uid="uid://bsc1u0uvlgkoh" path="res://Scenes/Item.tscn" id="1_hfvhl"]
+
+[node name="Meat" instance=ExtResource("1_hfvhl")]
+item_name = 3

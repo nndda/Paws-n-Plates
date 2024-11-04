@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxndaea6ryhf3"]
+
+[ext_resource type="PackedScene" uid="uid://bsc1u0uvlgkoh" path="res://Scenes/Item.tscn" id="1_6gc11"]
+[ext_resource type="Texture2D" uid="uid://ber1uqy8vimlq" path="res://Assets/Sprites/MeatFinished.png" id="2_o1sid"]
+[ext_resource type="Script" path="res://Scenes/ItemsFlash.gd" id="4_r8hgq"]
+
+[node name="MeatCooked" instance=ExtResource("1_6gc11")]
+item_name = 14
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_o1sid")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D" index="0"]
+texture = ExtResource("2_o1sid")
+script = ExtResource("4_r8hgq")
